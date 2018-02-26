@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		56DA42CA203432A600D3FC9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DA42C9203432A600D3FC9C /* AppDelegate.swift */; };
-		56DA42CC203432A600D3FC9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DA42CB203432A600D3FC9C /* ViewController.swift */; };
 		56DA42CF203432A600D3FC9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56DA42CD203432A600D3FC9C /* Main.storyboard */; };
 		56DA42D2203432A600D3FC9C /* MinimalNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56DA42D0203432A600D3FC9C /* MinimalNotes.xcdatamodeld */; };
 		56DA42D4203432A600D3FC9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DA42D3203432A600D3FC9C /* Assets.xcassets */; };
 		56DA42D7203432A600D3FC9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56DA42D5203432A600D3FC9C /* LaunchScreen.storyboard */; };
+		56DDA8B3204478AC00B46247 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B2204478AC00B46247 /* ContainerViewController.swift */; };
+		56DDA8B5204478E800B46247 /* SlideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B4204478E800B46247 /* SlideMenuTableViewController.swift */; };
+		56DDA8B72044808200B46247 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B62044808200B46247 /* NoteViewController.swift */; };
+		56DDA8B92044844300B46247 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B82044844300B46247 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		56DA42C6203432A600D3FC9C /* MinimalNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinimalNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DA42C9203432A600D3FC9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56DA42CB203432A600D3FC9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		56DA42CE203432A600D3FC9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56DA42D1203432A600D3FC9C /* MinimalNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MinimalNotes.xcdatamodel; sourceTree = "<group>"; };
 		56DA42D3203432A600D3FC9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56DA42D6203432A600D3FC9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56DA42D8203432A600D3FC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56DDA8B2204478AC00B46247 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		56DDA8B4204478E800B46247 /* SlideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuTableViewController.swift; sourceTree = "<group>"; };
+		56DDA8B62044808200B46247 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		56DDA8B82044844300B46247 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		56DA42C8203432A600D3FC9C /* MinimalNotes */ = {
 			isa = PBXGroup;
 			children = (
-				56DA42C9203432A600D3FC9C /* AppDelegate.swift */,
-				56DA42CB203432A600D3FC9C /* ViewController.swift */,
-				56DA42CD203432A600D3FC9C /* Main.storyboard */,
-				56DA42D3203432A600D3FC9C /* Assets.xcassets */,
-				56DA42D5203432A600D3FC9C /* LaunchScreen.storyboard */,
 				56DA42D8203432A600D3FC9C /* Info.plist */,
-				56DA42D0203432A600D3FC9C /* MinimalNotes.xcdatamodeld */,
+				56DA42C9203432A600D3FC9C /* AppDelegate.swift */,
+				56DA42D3203432A600D3FC9C /* Assets.xcassets */,
+				56DDA8AE20443F7E00B46247 /* Model */,
+				56DDA8AD20443F6F00B46247 /* View */,
+				56DDA8AF20443F9100B46247 /* Controller */,
 			);
 			path = MinimalNotes;
+			sourceTree = "<group>";
+		};
+		56DDA8AD20443F6F00B46247 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56DA42CD203432A600D3FC9C /* Main.storyboard */,
+				56DA42D5203432A600D3FC9C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56DDA8AE20443F7E00B46247 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56DA42D0203432A600D3FC9C /* MinimalNotes.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56DDA8AF20443F9100B46247 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				56DDA8B82044844300B46247 /* MainViewController.swift */,
+				56DDA8B62044808200B46247 /* NoteViewController.swift */,
+				56DDA8B4204478E800B46247 /* SlideMenuTableViewController.swift */,
+				56DDA8B2204478AC00B46247 /* ContainerViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56DA42CC203432A600D3FC9C /* ViewController.swift in Sources */,
 				56DA42CA203432A600D3FC9C /* AppDelegate.swift in Sources */,
+				56DDA8B3204478AC00B46247 /* ContainerViewController.swift in Sources */,
+				56DDA8B5204478E800B46247 /* SlideMenuTableViewController.swift in Sources */,
+				56DDA8B92044844300B46247 /* MainViewController.swift in Sources */,
+				56DDA8B72044808200B46247 /* NoteViewController.swift in Sources */,
 				56DA42D2203432A600D3FC9C /* MinimalNotes.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
