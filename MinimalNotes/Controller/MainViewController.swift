@@ -8,17 +8,24 @@
 
 import UIKit
 
+protocol ToogleMenuDelegate: class {
+    func toogleMenu()
+}
+
 class MainViewController: UIViewController {
 
+    // MARK: - Variables
+    weak var delegate: ToogleMenuDelegate?
+
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
 
+    // MARK: - Actions
     @IBAction func onMenuButtonTapped(_ sender: UIBarButtonItem) {
-        NotificationCenter.default.post(name: NSNotification.Name("ToogleSideMenu"), object: nil)
-        
+        delegate?.toogleMenu()
     }
 
 

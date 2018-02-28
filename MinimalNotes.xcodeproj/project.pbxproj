@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56B0DE1020471A5500C75B75 /* MenuTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B0DE0F20471A5400C75B75 /* MenuTableViewControllerDelegate.swift */; };
 		56DA42CA203432A600D3FC9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DA42C9203432A600D3FC9C /* AppDelegate.swift */; };
 		56DA42CF203432A600D3FC9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56DA42CD203432A600D3FC9C /* Main.storyboard */; };
 		56DA42D2203432A600D3FC9C /* MinimalNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56DA42D0203432A600D3FC9C /* MinimalNotes.xcdatamodeld */; };
 		56DA42D4203432A600D3FC9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DA42D3203432A600D3FC9C /* Assets.xcassets */; };
 		56DA42D7203432A600D3FC9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56DA42D5203432A600D3FC9C /* LaunchScreen.storyboard */; };
-		56DDA8B3204478AC00B46247 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B2204478AC00B46247 /* ContainerViewController.swift */; };
-		56DDA8B5204478E800B46247 /* SlideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B4204478E800B46247 /* SlideMenuTableViewController.swift */; };
+		56DDA8B5204478E800B46247 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B4204478E800B46247 /* MenuTableViewController.swift */; };
 		56DDA8B72044808200B46247 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B62044808200B46247 /* NoteViewController.swift */; };
 		56DDA8B92044844300B46247 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B82044844300B46247 /* MainViewController.swift */; };
+		56EBCA8920472E25006EC43C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBCA8820472E25006EC43C /* ContainerViewController.swift */; };
+		56EBCA8B204732D5006EC43C /* ContainerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBCA8A204732D5006EC43C /* ContainerViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56B0DE0F20471A5400C75B75 /* MenuTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		56DA42C6203432A600D3FC9C /* MinimalNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinimalNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DA42C9203432A600D3FC9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56DA42CE203432A600D3FC9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -26,10 +29,11 @@
 		56DA42D3203432A600D3FC9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56DA42D6203432A600D3FC9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56DA42D8203432A600D3FC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56DDA8B2204478AC00B46247 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		56DDA8B4204478E800B46247 /* SlideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuTableViewController.swift; sourceTree = "<group>"; };
+		56DDA8B4204478E800B46247 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		56DDA8B62044808200B46247 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		56DDA8B82044844300B46247 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		56EBCA8820472E25006EC43C /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		56EBCA8A204732D5006EC43C /* ContainerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +96,12 @@
 		56DDA8AF20443F9100B46247 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				56EBCA8A204732D5006EC43C /* ContainerViewControllerDelegate.swift */,
+				56EBCA8820472E25006EC43C /* ContainerViewController.swift */,
 				56DDA8B82044844300B46247 /* MainViewController.swift */,
+				56DDA8B4204478E800B46247 /* MenuTableViewController.swift */,
+				56B0DE0F20471A5400C75B75 /* MenuTableViewControllerDelegate.swift */,
 				56DDA8B62044808200B46247 /* NoteViewController.swift */,
-				56DDA8B4204478E800B46247 /* SlideMenuTableViewController.swift */,
-				56DDA8B2204478AC00B46247 /* ContainerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,11 +179,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				56DA42CA203432A600D3FC9C /* AppDelegate.swift in Sources */,
-				56DDA8B3204478AC00B46247 /* ContainerViewController.swift in Sources */,
-				56DDA8B5204478E800B46247 /* SlideMenuTableViewController.swift in Sources */,
+				56DDA8B5204478E800B46247 /* MenuTableViewController.swift in Sources */,
+				56EBCA8920472E25006EC43C /* ContainerViewController.swift in Sources */,
 				56DDA8B92044844300B46247 /* MainViewController.swift in Sources */,
 				56DDA8B72044808200B46247 /* NoteViewController.swift in Sources */,
 				56DA42D2203432A600D3FC9C /* MinimalNotes.xcdatamodeld in Sources */,
+				56B0DE1020471A5500C75B75 /* MenuTableViewControllerDelegate.swift in Sources */,
+				56EBCA8B204732D5006EC43C /* ContainerViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

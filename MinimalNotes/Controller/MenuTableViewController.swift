@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SlideMenuTableViewController: UITableViewController {
+class MenuTableViewController: UITableViewController {
+
+    var delegate: MenuDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,7 @@ class SlideMenuTableViewController: UITableViewController {
     */
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        delegate?.didSelectMenuItem(indexPath.row)
     }
 
 

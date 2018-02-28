@@ -2,7 +2,7 @@
 //  ContainerViewController.swift
 //  MinimalNotes
 //
-//  Created by Leandro Pessini on 26/02/2018.
+//  Created by Leandro Pessini on 28/02/2018.
 //  Copyright © 2018 Leandro Pessini. All rights reserved.
 //
 
@@ -13,15 +13,27 @@ class ContainerViewController: UIViewController {
     @IBOutlet weak var constraintMenuLeft: NSLayoutConstraint!
     @IBOutlet weak var constraintMenuWidth: NSLayoutConstraint!
 
-    var sideMenuOpen = false
+    var sideMenuOpen: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(toogleSideMenu), name: NSNotification.Name("ToogleSideMenu"), object: nil)
     }
 
-    @objc func toogleSideMenu() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mainContainerEmbedSegue" {
+            let navigationController = segue.destination as! UINavigationController
+            let mainVC = navigationController.topViewController as! MainViewController
+            mainVC.delegate = self
+        }
+    }
+
+}
+
+// MARK: - MainViewControllerDelegate
+
+extension ContainerViewController: ToogleMenuDelegate {
+    func toogleMenu() {
         if sideMenuOpen {
             constraintMenuLeft.constant = -300
         } else {
@@ -32,5 +44,4 @@ class ContainerViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-
 }
