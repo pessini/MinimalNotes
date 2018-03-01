@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct MenuItems {
+
+    let itemName: String
+
+    init(itemName: String) {
+        self.itemName = itemName
+    }
+
+    static func allItems() -> Array<String> {
+        return ["Notes", "Apps", "Profile", "Exit"]
+    }
+}

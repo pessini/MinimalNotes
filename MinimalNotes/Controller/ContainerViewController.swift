@@ -25,6 +25,9 @@ class ContainerViewController: UIViewController {
             let navigationController = segue.destination as! UINavigationController
             let mainVC = navigationController.topViewController as! MainViewController
             mainVC.delegate = self
+        } else if segue.identifier == "menuContainerEmbedSegue" {
+            let menuVC = segue.destination as! MenuTableViewController
+            menuVC.delegate = self
         }
     }
 
@@ -43,5 +46,11 @@ extension ContainerViewController: ToogleMenuDelegate {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+}
+
+extension ContainerViewController: MenuDelegate {
+    func didSelectMenuItem(_ index: Int) {
+        print(index)
     }
 }

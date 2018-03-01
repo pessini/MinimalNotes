@@ -18,6 +18,7 @@
 		56DDA8B92044844300B46247 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA8B82044844300B46247 /* MainViewController.swift */; };
 		56EBCA8920472E25006EC43C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBCA8820472E25006EC43C /* ContainerViewController.swift */; };
 		56EBCA8B204732D5006EC43C /* ContainerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBCA8A204732D5006EC43C /* ContainerViewControllerDelegate.swift */; };
+		56EBCA8D204855CD006EC43C /* MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBCA8C204855CD006EC43C /* MenuItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		56DDA8B82044844300B46247 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		56EBCA8820472E25006EC43C /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		56EBCA8A204732D5006EC43C /* ContainerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewControllerDelegate.swift; sourceTree = "<group>"; };
+		56EBCA8C204855CD006EC43C /* MenuItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		56DDA8AE20443F7E00B46247 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56EBCA8C204855CD006EC43C /* MenuItems.swift */,
 				56DA42D0203432A600D3FC9C /* MinimalNotes.xcdatamodeld */,
 			);
 			path = Model;
@@ -186,6 +189,7 @@
 				56DA42D2203432A600D3FC9C /* MinimalNotes.xcdatamodeld in Sources */,
 				56B0DE1020471A5500C75B75 /* MenuTableViewControllerDelegate.swift in Sources */,
 				56EBCA8B204732D5006EC43C /* ContainerViewControllerDelegate.swift in Sources */,
+				56EBCA8D204855CD006EC43C /* MenuItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
