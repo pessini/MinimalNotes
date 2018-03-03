@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,37 +62,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGF-iJ-7eT">
-                                <rect key="frame" x="323" y="20" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xn1-VF-00z">
+                                <rect key="frame" x="323" y="28" width="44" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="W7T-3L-uX5"/>
-                                    <constraint firstAttribute="height" constant="44" id="tlC-6w-Wal"/>
+                                    <constraint firstAttribute="width" constant="44" id="kVM-lM-tQu"/>
+                                    <constraint firstAttribute="height" constant="44" id="oGa-ya-xc0"/>
                                 </constraints>
                                 <state key="normal" title="X"/>
                                 <connections>
-                                    <action selector="close:" destination="cg1-co-hFt" eventType="touchUpInside" id="QVa-Yp-g22"/>
+                                    <action selector="closeButtonTapped:" destination="cg1-co-hFt" eventType="touchUpInside" id="xam-fH-2T6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text text text text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ds7-my-we0">
-                                <rect key="frame" x="121.5" y="313" width="132.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N2Z-28-wZg">
+                                <rect key="frame" x="10" y="77" width="355" height="520"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yg6-hD-uZG" userLabel="Bottom Bar Style">
+                                <rect key="frame" x="0.0" y="597" width="375" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ejb-4O-s0M">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUW-gM-MTa">
+                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="50"/>
+                                                <state key="normal" title="Size"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tO7-N7-KFb">
+                                                <rect key="frame" x="76.5" y="0.0" width="68.5" height="50"/>
+                                                <state key="normal" title="Mark"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uq1-v7-z88">
+                                                <rect key="frame" x="153" y="0.0" width="69" height="50"/>
+                                                <state key="normal" title="Bold"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUK-vl-EvY">
+                                                <rect key="frame" x="230" y="0.0" width="68.5" height="50"/>
+                                                <state key="normal" title="Align"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vi-6x-FB1">
+                                                <rect key="frame" x="306.5" y="0.0" width="68.5" height="50"/>
+                                                <state key="normal" title="Bullets"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ejb-4O-s0M" firstAttribute="height" secondItem="yg6-hD-uZG" secondAttribute="height" id="EyC-CZ-oE8"/>
+                                    <constraint firstItem="ejb-4O-s0M" firstAttribute="width" secondItem="yg6-hD-uZG" secondAttribute="width" id="KFP-gd-xiF"/>
+                                    <constraint firstItem="ejb-4O-s0M" firstAttribute="centerY" secondItem="yg6-hD-uZG" secondAttribute="centerY" id="mQw-WA-ssM"/>
+                                    <constraint firstItem="ejb-4O-s0M" firstAttribute="centerX" secondItem="yg6-hD-uZG" secondAttribute="centerX" id="nPs-aF-pUP"/>
+                                    <constraint firstAttribute="height" constant="50" id="q02-0a-IWX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tuO-7R-Mtd" firstAttribute="trailing" secondItem="RGF-iJ-7eT" secondAttribute="trailing" constant="8" id="4c9-dY-6h1"/>
-                            <constraint firstItem="Ds7-my-we0" firstAttribute="centerY" secondItem="di2-EG-5Dy" secondAttribute="centerY" id="8K3-hK-Taz"/>
-                            <constraint firstItem="Ds7-my-we0" firstAttribute="centerX" secondItem="di2-EG-5Dy" secondAttribute="centerX" id="IG9-rs-mqH"/>
-                            <constraint firstItem="RGF-iJ-7eT" firstAttribute="top" secondItem="tuO-7R-Mtd" secondAttribute="top" id="sjR-Y2-U3P"/>
+                            <constraint firstItem="N2Z-28-wZg" firstAttribute="leading" secondItem="tuO-7R-Mtd" secondAttribute="leading" constant="10" id="F3Z-Q3-fk9"/>
+                            <constraint firstAttribute="trailing" secondItem="yg6-hD-uZG" secondAttribute="trailing" id="Fsx-LI-H5h"/>
+                            <constraint firstItem="N2Z-28-wZg" firstAttribute="top" secondItem="xn1-VF-00z" secondAttribute="bottom" constant="5" id="Imf-zX-b3Q"/>
+                            <constraint firstItem="yg6-hD-uZG" firstAttribute="top" secondItem="N2Z-28-wZg" secondAttribute="bottom" id="P1a-ff-VfB"/>
+                            <constraint firstItem="xn1-VF-00z" firstAttribute="top" secondItem="tuO-7R-Mtd" secondAttribute="top" constant="8" id="QMv-IQ-wIj"/>
+                            <constraint firstItem="yg6-hD-uZG" firstAttribute="leading" secondItem="di2-EG-5Dy" secondAttribute="leading" id="bbM-9z-HUz"/>
+                            <constraint firstAttribute="bottom" secondItem="yg6-hD-uZG" secondAttribute="bottom" id="hg8-Lg-cp5"/>
+                            <constraint firstItem="tuO-7R-Mtd" firstAttribute="trailing" secondItem="xn1-VF-00z" secondAttribute="trailing" constant="8" id="ouR-iA-T6v"/>
+                            <constraint firstItem="tuO-7R-Mtd" firstAttribute="trailing" secondItem="N2Z-28-wZg" secondAttribute="trailing" constant="10" id="qo3-Pl-qqe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tuO-7R-Mtd"/>
                     </view>
+                    <connections>
+                        <outlet property="alignButton" destination="eUK-vl-EvY" id="W3L-p2-o0H"/>
+                        <outlet property="boldButton" destination="Uq1-v7-z88" id="Vsi-JT-l8E"/>
+                        <outlet property="bottomBarBottomConstraint" destination="hg8-Lg-cp5" id="cL9-im-7Hg"/>
+                        <outlet property="bottomBarView" destination="yg6-hD-uZG" id="0K5-YQ-WIa"/>
+                        <outlet property="bulletsButton" destination="1vi-6x-FB1" id="BF2-oM-XU4"/>
+                        <outlet property="editTextView" destination="N2Z-28-wZg" id="kdt-IL-ShI"/>
+                        <outlet property="highlightButton" destination="tO7-N7-KFb" id="zid-gv-cJk"/>
+                        <outlet property="sizeButton" destination="gUW-gM-MTa" id="0ER-T4-fC7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcb-Ct-xij" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3359.1999999999998" y="-442.12893553223392"/>
+            <point key="canvasLocation" x="3093.5999999999999" y="-442.12893553223392"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="d77-4g-T3a">
@@ -195,9 +250,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="drV-1Q-l0s"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="MSp-9R-Don"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Minimal Notes" id="c2r-uu-3Yi">
                         <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="lMg-ua-eTZ">
                             <connections>
