@@ -12,5 +12,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var noteLabel: UILabel!
     
-    
+    func prepare(with note: Note) {
+        noteLabel.text = note.title ?? ""
+    }
 }

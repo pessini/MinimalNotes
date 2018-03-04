@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56232800204B054C00986993 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562327FF204B054C00986993 /* NoteView.swift */; };
-		56232804204C1DEB00986993 /* NotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56232803204C1DEB00986993 /* NotesManager.swift */; };
 		56232806204C1EB600986993 /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56232805204C1EB600986993 /* UIViewController+CoreData.swift */; };
 		56232808204C41E500986993 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56232807204C41E500986993 /* NoteCollectionViewCell.swift */; };
 		56B0DE1020471A5500C75B75 /* MenuTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B0DE0F20471A5400C75B75 /* MenuTableViewControllerDelegate.swift */; };
@@ -26,8 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		562327FF204B054C00986993 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
-		56232803204C1DEB00986993 /* NotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesManager.swift; sourceTree = "<group>"; };
 		56232805204C1EB600986993 /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		56232807204C41E500986993 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		56B0DE0F20471A5400C75B75 /* MenuTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -98,9 +94,7 @@
 		56DDA8AE20443F7E00B46247 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				56232803204C1DEB00986993 /* NotesManager.swift */,
 				56232805204C1EB600986993 /* UIViewController+CoreData.swift */,
-				562327FF204B054C00986993 /* NoteView.swift */,
 				56EBCA8C204855CD006EC43C /* MenuItems.swift */,
 				56DA42D0203432A600D3FC9C /* MinimalNotes.xcdatamodeld */,
 			);
@@ -199,8 +193,6 @@
 				56DDA8B92044844300B46247 /* MainViewController.swift in Sources */,
 				56DDA8B72044808200B46247 /* NoteViewController.swift in Sources */,
 				56DA42D2203432A600D3FC9C /* MinimalNotes.xcdatamodeld in Sources */,
-				56232800204B054C00986993 /* NoteView.swift in Sources */,
-				56232804204C1DEB00986993 /* NotesManager.swift in Sources */,
 				56B0DE1020471A5500C75B75 /* MenuTableViewControllerDelegate.swift in Sources */,
 				56232806204C1EB600986993 /* UIViewController+CoreData.swift in Sources */,
 				56EBCA8B204732D5006EC43C /* ContainerViewControllerDelegate.swift in Sources */,

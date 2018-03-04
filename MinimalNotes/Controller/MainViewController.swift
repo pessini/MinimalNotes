@@ -17,7 +17,6 @@ class MainViewController: UIViewController {
 
     // MARK: - Variables
     weak var delegate: ToogleMenuDelegate?
-    var notes: [Note] = []
     var fetchedResultController: NSFetchedResultsController<Note>!
     var labelMessageEmptyDB = UILabel()
 
@@ -33,6 +32,13 @@ class MainViewController: UIViewController {
 
         notesCollectionView.delegate = self
         notesCollectionView.dataSource = self
+
+        loadNotes()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        notesCollectionView.reloadData()
     }
 
     // MARK: - Actions
@@ -40,29 +46,69 @@ class MainViewController: UIViewController {
         delegate?.toogleMenu()
     }
 
+    // MARK: - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "noteViewSegue" {
+        if segue.identifier == "noteSegue" {
             if let noteVC = segue.destination as? NoteViewController {
-                
+                if let notes = fetchedResultController.fetchedObjects {
+                    let cell = sender as! NoteCollectionViewCell
+                    let indexPath = notesCollectionView.indexPath(for: cell)
+                    noteVC.note = notes[(indexPath?.row)!]
+                }
             }
         }
     }
 
+    //MARK: - Get notes from the context
+
+    func loadNotes(filtering: String = "") {
+        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        if !filtering.isEmpty {
+            let predicate = NSPredicate(format: "title contains [c] %@", filtering)
+            fetchRequest.predicate = predicate
+        }
+
+        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultController.delegate = self
+
+        do {
+            try fetchedResultController.performFetch()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+}
+
+extension MainViewController: NSFetchedResultsControllerDelegate {
 
 }
 
 // MARK: - UICollectionViewDelegate e UICollectionViewDataSource
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return notes.count
+        let count = fetchedResultController.fetchedObjects?.count ?? 0
+        notesCollectionView.backgroundView = count == 0 ? labelMessageEmptyDB : nil
+
+        print(count)
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "noteCell", for: indexPath) as! NoteCollectionViewCell
-        cell.noteLabel.text = "teste"
+
+        guard let note = fetchedResultController.fetchedObjects?[indexPath.row] else {
+            return cell
+        }
+
+        cell.prepare(with: note)
 
         return cell
     }
-    
-}
 
+}

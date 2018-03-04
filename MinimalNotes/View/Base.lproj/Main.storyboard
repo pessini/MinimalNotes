@@ -217,9 +217,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxX-hI-5ce">
-                                <rect key="frame" x="10" y="64" width="355" height="539"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" canCancelContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rxX-hI-5ce">
+                                <rect key="frame" x="10" y="64" width="355" height="583"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FJ3-5P-dDy">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -228,29 +228,31 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" reuseIdentifier="noteCell" id="yq3-UV-i1L" customClass="NoteCollectionViewCell" customModule="MinimalNotes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="140"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="260"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="260"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" contentMode="TopLeft" text="Note" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB5-hv-dlU">
-                                                    <rect key="frame" x="13" y="13" width="34" height="114"/>
+                                                    <rect key="frame" x="13" y="13" width="74" height="114"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="MB5-hv-dlU" firstAttribute="leading" secondItem="yq3-UV-i1L" secondAttribute="leadingMargin" constant="5" id="8Zx-MZ-RW3"/>
                                             <constraint firstItem="MB5-hv-dlU" firstAttribute="top" secondItem="yq3-UV-i1L" secondAttribute="topMargin" constant="5" id="YwS-qi-8qZ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="MB5-hv-dlU" secondAttribute="bottom" constant="5" id="f3h-BY-yAl"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="MB5-hv-dlU" secondAttribute="trailing" constant="5" id="uOj-Ds-ZX9"/>
                                         </constraints>
-                                        <size key="customSize" width="60" height="140"/>
+                                        <size key="customSize" width="100" height="260"/>
                                         <connections>
                                             <outlet property="noteLabel" destination="MB5-hv-dlU" id="hSk-Mp-mIH"/>
+                                            <segue destination="cg1-co-hFt" kind="presentation" identifier="noteSegue" id="3Jj-jX-fGf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -261,7 +263,7 @@
                             <constraint firstItem="drV-1Q-l0s" firstAttribute="trailing" secondItem="rxX-hI-5ce" secondAttribute="trailing" constant="10" id="SRf-il-hRp"/>
                             <constraint firstItem="rxX-hI-5ce" firstAttribute="top" secondItem="drV-1Q-l0s" secondAttribute="top" id="YbG-uJ-ach"/>
                             <constraint firstItem="rxX-hI-5ce" firstAttribute="leading" secondItem="drV-1Q-l0s" secondAttribute="leading" constant="10" id="gf0-zl-eNt"/>
-                            <constraint firstItem="rxX-hI-5ce" firstAttribute="bottom" secondItem="drV-1Q-l0s" secondAttribute="bottom" id="tq6-w6-FlN"/>
+                            <constraint firstItem="rxX-hI-5ce" firstAttribute="bottom" secondItem="dWE-r9-Nk7" secondAttribute="bottom" id="tq6-w6-FlN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="drV-1Q-l0s"/>
                     </view>
@@ -274,7 +276,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ghw-lK-Epw">
                             <connections>
-                                <segue destination="cg1-co-hFt" kind="presentation" identifier="noteViewSegue" id="TmD-zq-b7j"/>
+                                <segue destination="cg1-co-hFt" kind="presentation" identifier="newNoteSegue" id="TmD-zq-b7j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -310,4 +312,7 @@
             <point key="canvasLocation" x="1546" y="-442"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TmD-zq-b7j"/>
+    </inferredMetricsTieBreakers>
 </document>
