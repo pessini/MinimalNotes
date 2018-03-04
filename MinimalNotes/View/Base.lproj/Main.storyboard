@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -212,58 +213,75 @@
         <scene sceneID="6Rx-Cb-nt5">
             <objects>
                 <viewController id="wKm-7j-cvq" customClass="MainViewController" customModule="MinimalNotes" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dWE-r9-Nk7">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="dWE-r9-Nk7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="kZn-hH-dFi">
-                                <rect key="frame" x="87.5" y="224" width="201" height="200"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leandro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIB-Ju-cch">
-                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pessini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAD-Uk-EpQ">
-                                        <rect key="frame" x="62.5" y="0.0" width="53.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Fedele" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmT-mE-u2X">
-                                        <rect key="frame" x="116" y="0.0" width="85" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="3AC-Xa-xP6"/>
-                                </constraints>
-                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxX-hI-5ce">
+                                <rect key="frame" x="10" y="64" width="355" height="539"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FJ3-5P-dDy">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" reuseIdentifier="noteCell" id="yq3-UV-i1L" customClass="NoteCollectionViewCell" customModule="MinimalNotes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" contentMode="TopLeft" text="Note" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB5-hv-dlU">
+                                                    <rect key="frame" x="13" y="13" width="34" height="114"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="MB5-hv-dlU" firstAttribute="leading" secondItem="yq3-UV-i1L" secondAttribute="leadingMargin" constant="5" id="8Zx-MZ-RW3"/>
+                                            <constraint firstItem="MB5-hv-dlU" firstAttribute="top" secondItem="yq3-UV-i1L" secondAttribute="topMargin" constant="5" id="YwS-qi-8qZ"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="MB5-hv-dlU" secondAttribute="bottom" constant="5" id="f3h-BY-yAl"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="MB5-hv-dlU" secondAttribute="trailing" constant="5" id="uOj-Ds-ZX9"/>
+                                        </constraints>
+                                        <size key="customSize" width="60" height="140"/>
+                                        <connections>
+                                            <outlet property="noteLabel" destination="MB5-hv-dlU" id="hSk-Mp-mIH"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kZn-hH-dFi" firstAttribute="centerX" secondItem="dWE-r9-Nk7" secondAttribute="centerX" id="8sO-85-FFD"/>
-                            <constraint firstItem="kZn-hH-dFi" firstAttribute="centerY" secondItem="dWE-r9-Nk7" secondAttribute="centerY" id="iPh-EP-5F2"/>
+                            <constraint firstItem="drV-1Q-l0s" firstAttribute="trailing" secondItem="rxX-hI-5ce" secondAttribute="trailing" constant="10" id="SRf-il-hRp"/>
+                            <constraint firstItem="rxX-hI-5ce" firstAttribute="top" secondItem="drV-1Q-l0s" secondAttribute="top" id="YbG-uJ-ach"/>
+                            <constraint firstItem="rxX-hI-5ce" firstAttribute="leading" secondItem="drV-1Q-l0s" secondAttribute="leading" constant="10" id="gf0-zl-eNt"/>
+                            <constraint firstItem="rxX-hI-5ce" firstAttribute="bottom" secondItem="drV-1Q-l0s" secondAttribute="bottom" id="tq6-w6-FlN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="drV-1Q-l0s"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Minimal Notes" id="c2r-uu-3Yi">
-                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="lMg-ua-eTZ">
+                    <navigationItem key="navigationItem" title="Minimal Notes" id="Xx8-k6-4d9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="c6u-uY-KrB">
                             <connections>
-                                <action selector="onMenuButtonTapped:" destination="wKm-7j-cvq" id="sEy-Ti-lPJ"/>
+                                <action selector="onMenuButtonTapped:" destination="wKm-7j-cvq" id="vUZ-h0-Tuq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xG1-GX-8mG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ghw-lK-Epw">
                             <connections>
-                                <segue destination="cg1-co-hFt" kind="presentation" id="doh-vc-2V2"/>
+                                <segue destination="cg1-co-hFt" kind="presentation" identifier="noteViewSegue" id="TmD-zq-b7j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="notesCollectionView" destination="rxX-hI-5ce" id="hdu-5x-SVR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b6-gP-X1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,11 +292,15 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lts-9B-fIc" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WBm-DR-JjA">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WyV-nR-xNM">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="wKm-7j-cvq" kind="relationship" relationship="rootViewController" id="3dy-tz-vtS"/>
                     </connections>

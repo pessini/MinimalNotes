@@ -18,11 +18,15 @@ class NoteViewController: UIViewController {
     @IBOutlet weak var alignButton: UIButton!
     @IBOutlet weak var bulletsButton: UIButton!
     @IBOutlet weak var bottomBarBottomConstraint: NSLayoutConstraint!
+
+    var note: Note!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         editTextView.delegate = self
+
+        // adding observer to get when the keyboard will show or hide
 
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(updateViewForKeyboard(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
@@ -31,6 +35,21 @@ class NoteViewController: UIViewController {
     }
 
     @IBAction func closeButtonTapped(_ sender: UIButton) {
+
+        if note == nil {
+            note = Note(context: context)
+        }
+
+        note.title = "Padrão"
+        note.dateAdded = Date()
+        note.text = editTextView.attributedText
+
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+
         dismiss(animated: true, completion: nil)
     }
 
@@ -39,7 +58,10 @@ class NoteViewController: UIViewController {
         self.view.endEditing(true)
     }
 
+    // MARK: - Keyboard will show or hide
+
     @objc func updateViewForKeyboard(notification: Notification) {
+
         let userInfo = notification.userInfo!
         let keyboardEndFrameScreenCoordinates = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let keyboardEndFrame = self.view.convert(keyboardEndFrameScreenCoordinates, to: view.window)
