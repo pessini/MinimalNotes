@@ -82,11 +82,18 @@ class NoteViewController: UIViewController {
             //noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize), .underlineStyle: NSUnderlineStyle.styleSingle.rawValue], range: range)
 
             let systemFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
-            if sender.tag == toolBarButtonType.bold.rawValue {
-                if let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitBold]) {
-                    noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize)], range: range)
-                }
-            } else {
+
+            switch sender.tag {
+                case toolBarButtonType.bold.rawValue:
+                    if let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitBold]) {
+                            noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize)], range: range)
+                    }
+                case toolBarButtonType.italic.rawValue:
+                    if let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitItalic]) {
+                        noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize)], range: range)
+                    }
+                default:
+                    break
 
             }
 
