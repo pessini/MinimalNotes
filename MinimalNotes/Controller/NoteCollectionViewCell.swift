@@ -13,6 +13,9 @@ class NoteCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var noteLabel: UILabel!
     
     func prepare(with note: Note) {
-        noteLabel.text = note.title ?? ""
+
+        noteLabel.text = note.text as? String ?? ""
+        print(note.text?.description as Any, "\n")
+
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YQ1-SP-gjI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cg1-co-hFt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -74,75 +73,38 @@
                                     <action selector="closeButtonTapped:" destination="cg1-co-hFt" eventType="touchUpInside" id="xam-fH-2T6"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N2Z-28-wZg">
-                                <rect key="frame" x="10" y="77" width="355" height="520"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N2Z-28-wZg">
+                                <rect key="frame" x="0.0" y="77" width="375" height="526"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yg6-hD-uZG" userLabel="Bottom Bar Style">
-                                <rect key="frame" x="0.0" y="597" width="375" height="50"/>
-                                <subviews>
-                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ejb-4O-s0M">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUW-gM-MTa">
-                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="50"/>
-                                                <state key="normal" title="Size"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tO7-N7-KFb">
-                                                <rect key="frame" x="76.5" y="0.0" width="68.5" height="50"/>
-                                                <state key="normal" title="Mark"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uq1-v7-z88">
-                                                <rect key="frame" x="153" y="0.0" width="69" height="50"/>
-                                                <state key="normal" title="Bold"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUK-vl-EvY">
-                                                <rect key="frame" x="230" y="0.0" width="68.5" height="50"/>
-                                                <state key="normal" title="Align"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vi-6x-FB1">
-                                                <rect key="frame" x="306.5" y="0.0" width="68.5" height="50"/>
-                                                <state key="normal" title="Bullets"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYR-wO-QOn">
+                                <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                 <constraints>
-                                    <constraint firstItem="ejb-4O-s0M" firstAttribute="height" secondItem="yg6-hD-uZG" secondAttribute="height" id="EyC-CZ-oE8"/>
-                                    <constraint firstItem="ejb-4O-s0M" firstAttribute="width" secondItem="yg6-hD-uZG" secondAttribute="width" id="KFP-gd-xiF"/>
-                                    <constraint firstItem="ejb-4O-s0M" firstAttribute="centerY" secondItem="yg6-hD-uZG" secondAttribute="centerY" id="mQw-WA-ssM"/>
-                                    <constraint firstItem="ejb-4O-s0M" firstAttribute="centerX" secondItem="yg6-hD-uZG" secondAttribute="centerX" id="nPs-aF-pUP"/>
-                                    <constraint firstAttribute="height" constant="50" id="q02-0a-IWX"/>
+                                    <constraint firstAttribute="height" constant="44" id="R23-WY-xb7"/>
                                 </constraints>
-                            </view>
+                                <items/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="N2Z-28-wZg" firstAttribute="leading" secondItem="tuO-7R-Mtd" secondAttribute="leading" constant="10" id="F3Z-Q3-fk9"/>
-                            <constraint firstAttribute="trailing" secondItem="yg6-hD-uZG" secondAttribute="trailing" id="Fsx-LI-H5h"/>
-                            <constraint firstItem="N2Z-28-wZg" firstAttribute="top" secondItem="xn1-VF-00z" secondAttribute="bottom" constant="5" id="Imf-zX-b3Q"/>
-                            <constraint firstItem="yg6-hD-uZG" firstAttribute="top" secondItem="N2Z-28-wZg" secondAttribute="bottom" id="P1a-ff-VfB"/>
+                            <constraint firstItem="tuO-7R-Mtd" firstAttribute="trailing" secondItem="N2Z-28-wZg" secondAttribute="trailing" id="9PR-e2-J1o"/>
+                            <constraint firstItem="AYR-wO-QOn" firstAttribute="top" secondItem="N2Z-28-wZg" secondAttribute="bottom" id="H67-IG-Xjy"/>
+                            <constraint firstAttribute="trailing" secondItem="AYR-wO-QOn" secondAttribute="trailing" id="KAu-26-78N"/>
                             <constraint firstItem="xn1-VF-00z" firstAttribute="top" secondItem="tuO-7R-Mtd" secondAttribute="top" constant="8" id="QMv-IQ-wIj"/>
-                            <constraint firstItem="yg6-hD-uZG" firstAttribute="leading" secondItem="di2-EG-5Dy" secondAttribute="leading" id="bbM-9z-HUz"/>
-                            <constraint firstAttribute="bottom" secondItem="yg6-hD-uZG" secondAttribute="bottom" id="hg8-Lg-cp5"/>
+                            <constraint firstItem="N2Z-28-wZg" firstAttribute="leading" secondItem="tuO-7R-Mtd" secondAttribute="leading" id="Syy-Us-Ydc"/>
+                            <constraint firstItem="AYR-wO-QOn" firstAttribute="leading" secondItem="di2-EG-5Dy" secondAttribute="leading" id="V3u-F9-xEm"/>
+                            <constraint firstItem="N2Z-28-wZg" firstAttribute="top" secondItem="xn1-VF-00z" secondAttribute="bottom" constant="5" id="WXo-vo-aLc"/>
+                            <constraint firstAttribute="bottom" secondItem="AYR-wO-QOn" secondAttribute="bottom" id="hEv-Sn-47k"/>
                             <constraint firstItem="tuO-7R-Mtd" firstAttribute="trailing" secondItem="xn1-VF-00z" secondAttribute="trailing" constant="8" id="ouR-iA-T6v"/>
-                            <constraint firstItem="tuO-7R-Mtd" firstAttribute="trailing" secondItem="N2Z-28-wZg" secondAttribute="trailing" constant="10" id="qo3-Pl-qqe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tuO-7R-Mtd"/>
                     </view>
                     <connections>
-                        <outlet property="alignButton" destination="eUK-vl-EvY" id="W3L-p2-o0H"/>
-                        <outlet property="boldButton" destination="Uq1-v7-z88" id="Vsi-JT-l8E"/>
-                        <outlet property="bottomBarBottomConstraint" destination="hg8-Lg-cp5" id="cL9-im-7Hg"/>
-                        <outlet property="bottomBarView" destination="yg6-hD-uZG" id="0K5-YQ-WIa"/>
-                        <outlet property="bulletsButton" destination="1vi-6x-FB1" id="BF2-oM-XU4"/>
-                        <outlet property="editTextView" destination="N2Z-28-wZg" id="kdt-IL-ShI"/>
-                        <outlet property="highlightButton" destination="tO7-N7-KFb" id="zid-gv-cJk"/>
-                        <outlet property="sizeButton" destination="gUW-gM-MTa" id="0ER-T4-fC7"/>
+                        <outlet property="noteTextView" destination="N2Z-28-wZg" id="xmm-us-d2g"/>
+                        <outlet property="toolBar" destination="AYR-wO-QOn" id="oaC-jn-rby"/>
+                        <outlet property="toolBarBottomConstraint" destination="hEv-Sn-47k" id="iHT-iv-8qG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcb-Ct-xij" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,7 +189,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" reuseIdentifier="noteCell" id="yq3-UV-i1L" customClass="NoteCollectionViewCell" customModule="MinimalNotes" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="noteCell" id="yq3-UV-i1L" customClass="NoteCollectionViewCell" customModule="MinimalNotes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="260"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -235,8 +197,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" contentMode="TopLeft" text="Note" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB5-hv-dlU">
-                                                    <rect key="frame" x="13" y="13" width="74" height="114"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <rect key="frame" x="13" y="13" width="74" height="234"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

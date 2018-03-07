@@ -8,23 +8,28 @@
 
 import UIKit
 
+enum toolBarButtonType: Int {
+    case fontSize = 0, bold = 1, italic = 2, align = 3, bullets = 4
+}
+
 class NoteViewController: UIViewController {
 
-    @IBOutlet weak var editTextView: UITextView!
-    @IBOutlet weak var bottomBarView: UIView!
-    @IBOutlet weak var sizeButton: UIButton!
-    @IBOutlet weak var highlightButton: UIButton!
-    @IBOutlet weak var boldButton: UIButton!
-    @IBOutlet weak var alignButton: UIButton!
-    @IBOutlet weak var bulletsButton: UIButton!
-    @IBOutlet weak var bottomBarBottomConstraint: NSLayoutConstraint!
-
-    var note: Note!
+    // MARK: - IBOutlets
+    @IBOutlet weak var noteTextView: UITextView!
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var toolBarBottomConstraint: NSLayoutConstraint!
     
+
+    // MARK: - Variables
+    var note: Note!
+
+    // MARK: - view life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        editTextView.delegate = self
+        noteTextView.delegate = self
+
+        setupBarButtonItems()
 
         // adding observer to get when the keyboard will show or hide
 
@@ -32,6 +37,64 @@ class NoteViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(updateViewForKeyboard(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         notificationCenter.addObserver(self, selector: #selector(updateViewForKeyboard(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
+    }
+
+    func setupBarButtonItems() {
+
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        let changeFontSize = UIBarButtonItem(title: "Size", style: .plain, target: self, action: #selector(applyStyle))
+        changeFontSize.tag = 0
+
+        let makeBold = UIBarButtonItem(title: "B", style: .plain, target: self, action: #selector(applyStyle))
+        makeBold.tag = toolBarButtonType.bold.rawValue
+
+        let makeItalic = UIBarButtonItem(title: "I", style: .plain, target: self, action: #selector(applyStyle))
+        makeItalic.tag = toolBarButtonType.italic.rawValue
+
+        let alignText = UIBarButtonItem(title: "Align", style: .plain, target: self, action: #selector(applyStyle))
+        alignText.tag = toolBarButtonType.align.rawValue
+
+        let applyBullets = UIBarButtonItem(title: "Bullets", style: .plain, target: self, action: #selector(applyStyle))
+        applyBullets.tag = toolBarButtonType.bullets.rawValue
+
+        toolBar.items?.append(flexibleSpace)
+        toolBar.items?.append(changeFontSize)
+        toolBar.items?.append(makeBold)
+        toolBar.items?.append(makeItalic)
+        toolBar.items?.append(alignText)
+        toolBar.items?.append(applyBullets)
+        toolBar.items?.append(flexibleSpace)
+    }
+
+    @objc func applyStyle(sender: UIBarButtonItem){
+
+        let range: NSRange = noteTextView.selectedRange
+
+        if noteTextView.selectedRange.length > 0 { // there is any text selected
+
+//            let attributedTextSelected = NSMutableAttributedString(attributedString: noteTextView.attributedText.attributedSubstring(from: range))
+
+            noteTextView.textStorage.beginEditing()
+
+            // let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitBold, .traitItalic])
+
+            //noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize), .underlineStyle: NSUnderlineStyle.styleSingle.rawValue], range: range)
+
+            let systemFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+            if sender.tag == toolBarButtonType.bold.rawValue {
+                if let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitBold]) {
+                    noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize)], range: range)
+                }
+            } else {
+
+            }
+
+            noteTextView.textStorage.endEditing()
+
+        } else {
+            print(range)
+        }
     }
 
     @IBAction func closeButtonTapped(_ sender: UIButton) {
@@ -42,7 +105,7 @@ class NoteViewController: UIViewController {
 
         note.title = "Padrão"
         note.dateAdded = Date()
-        note.text = editTextView.attributedText
+//        note.text = "" as NSObject
 
         do {
             try context.save()
@@ -67,22 +130,35 @@ class NoteViewController: UIViewController {
         let keyboardEndFrame = self.view.convert(keyboardEndFrameScreenCoordinates, to: view.window)
 
         if notification.name == Notification.Name.UIKeyboardWillHide {
-            editTextView.contentInset = UIEdgeInsets.zero
-            bottomBarBottomConstraint.constant = 0
+            noteTextView.contentInset = UIEdgeInsets.zero
+            toolBarBottomConstraint.constant = 0
         } else {
-            editTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardEndFrame.height, right: 0)
-            editTextView.scrollIndicatorInsets = editTextView.contentInset
+            noteTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardEndFrame.height, right: 0)
+            noteTextView.scrollIndicatorInsets = noteTextView.contentInset
 
-            bottomBarBottomConstraint.constant = keyboardEndFrame.height
+            toolBarBottomConstraint.constant = keyboardEndFrame.height
         }
 
-        editTextView.scrollRangeToVisible(editTextView.selectedRange)
+        noteTextView.scrollRangeToVisible(noteTextView.selectedRange)
 
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
 
+}
+
+extension UIFont{
+
+    func withTraits(traits:UIFontDescriptorSymbolicTraits...) -> UIFont {
+        let descriptor = self.fontDescriptor
+            .withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
+        return UIFont(descriptor: descriptor!, size: 0)
+    }
+
+    func bold() -> UIFont {
+        return withTraits(traits: .traitBold)
+    }
 }
 
 // MARK: - UITextView Delegate
