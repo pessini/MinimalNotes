@@ -18,7 +18,6 @@ class NoteViewController: UIViewController {
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var toolBarBottomConstraint: NSLayoutConstraint!
-    
 
     // MARK: - Variables
     var note: Note!

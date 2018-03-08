@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class"/>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="dateAdded" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -17,11 +17,11 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Category" positionX="-18" positionY="27" width="128" height="45"/>
         <element name="Note" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Subcategory" positionX="0" positionY="45" width="128" height="45"/>
         <element name="Tag" positionX="-54" positionY="-9" width="128" height="75"/>
         <element name="User" positionX="-36" positionY="9" width="128" height="60"/>
-        <element name="Category" positionX="-18" positionY="27" width="128" height="45"/>
-        <element name="Subcategory" positionX="0" positionY="45" width="128" height="45"/>
-        <element name="Trash" positionX="18" positionY="63" width="128" height="45"/>
+        <element name="Trash" positionX="-27" positionY="18" width="128" height="45"/>
     </elements>
 </model>
