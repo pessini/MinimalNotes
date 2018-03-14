@@ -10,6 +10,7 @@
 		56232806204C1EB600986993 /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56232805204C1EB600986993 /* UIViewController+CoreData.swift */; };
 		56232808204C41E500986993 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56232807204C41E500986993 /* NoteCollectionViewCell.swift */; };
 		56B0DE1020471A5500C75B75 /* MenuTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B0DE0F20471A5400C75B75 /* MenuTableViewControllerDelegate.swift */; };
+		56C9494220568442006E805D /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C9494120568442006E805D /* TextStyle.swift */; };
 		56DA42CA203432A600D3FC9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DA42C9203432A600D3FC9C /* AppDelegate.swift */; };
 		56DA42CF203432A600D3FC9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56DA42CD203432A600D3FC9C /* Main.storyboard */; };
 		56DA42D2203432A600D3FC9C /* MinimalNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56DA42D0203432A600D3FC9C /* MinimalNotes.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 		56232805204C1EB600986993 /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		56232807204C41E500986993 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		56B0DE0F20471A5400C75B75 /* MenuTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewControllerDelegate.swift; sourceTree = "<group>"; };
+		56C9494120568442006E805D /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		56DA42C6203432A600D3FC9C /* MinimalNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinimalNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DA42C9203432A600D3FC9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56DA42CE203432A600D3FC9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		56DDA8AE20443F7E00B46247 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56C9494120568442006E805D /* TextStyle.swift */,
 				56232805204C1EB600986993 /* UIViewController+CoreData.swift */,
 				56EBCA8C204855CD006EC43C /* MenuItems.swift */,
 				56DA42D0203432A600D3FC9C /* MinimalNotes.xcdatamodeld */,
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C9494220568442006E805D /* TextStyle.swift in Sources */,
 				56DA42CA203432A600D3FC9C /* AppDelegate.swift in Sources */,
 				56DDA8B5204478E800B46247 /* MenuTableViewController.swift in Sources */,
 				56EBCA8920472E25006EC43C /* ContainerViewController.swift in Sources */,

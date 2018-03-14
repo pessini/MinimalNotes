@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum toolBarButtonType: Int {
-    case fontSize = 0, bold = 1, italic = 2, align = 3, bullets = 4
-}
-
 class NoteViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -46,16 +42,16 @@ class NoteViewController: UIViewController {
         changeFontSize.tag = 0
 
         let makeBold = UIBarButtonItem(title: "B", style: .plain, target: self, action: #selector(applyStyle))
-        makeBold.tag = toolBarButtonType.bold.rawValue
+        makeBold.tag = StyleName.bold.indexValue
 
         let makeItalic = UIBarButtonItem(title: "I", style: .plain, target: self, action: #selector(applyStyle))
-        makeItalic.tag = toolBarButtonType.italic.rawValue
+        makeItalic.tag = StyleName.italic.indexValue
 
         let alignText = UIBarButtonItem(title: "Align", style: .plain, target: self, action: #selector(applyStyle))
-        alignText.tag = toolBarButtonType.align.rawValue
+        alignText.tag = StyleName.align.indexValue
 
         let applyBullets = UIBarButtonItem(title: "Bullets", style: .plain, target: self, action: #selector(applyStyle))
-        applyBullets.tag = toolBarButtonType.bullets.rawValue
+        applyBullets.tag = StyleName.bullets.indexValue
 
         toolBar.items?.append(flexibleSpace)
         toolBar.items?.append(changeFontSize)
@@ -67,40 +63,16 @@ class NoteViewController: UIViewController {
     }
 
     @objc func applyStyle(sender: UIBarButtonItem){
-
+        
         let range: NSRange = noteTextView.selectedRange
+        let textStyle = TextStyle()
 
-        if noteTextView.selectedRange.length > 0 { // there is any text selected
+        noteTextView.textStorage.beginEditing()
 
-//            let attributedTextSelected = NSMutableAttributedString(attributedString: noteTextView.attributedText.attributedSubstring(from: range))
+        
 
-            noteTextView.textStorage.beginEditing()
+        noteTextView.textStorage.endEditing()
 
-            // let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitBold, .traitItalic])
-
-            //noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize), .underlineStyle: NSUnderlineStyle.styleSingle.rawValue], range: range)
-
-            let systemFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
-
-            switch sender.tag {
-                case toolBarButtonType.bold.rawValue:
-                    if let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitBold]) {
-                            noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize)], range: range)
-                    }
-                case toolBarButtonType.italic.rawValue:
-                    if let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitItalic]) {
-                        noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize)], range: range)
-                    }
-                default:
-                    break
-
-            }
-
-            noteTextView.textStorage.endEditing()
-
-        } else {
-            print(range)
-        }
     }
 
     @IBAction func closeButtonTapped(_ sender: UIButton) {
