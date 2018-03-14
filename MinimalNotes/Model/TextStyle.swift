@@ -27,27 +27,3 @@ public enum StyleName: Int {
         }
     }
 }
-
-public struct TextStyle {
-
-    func applyTextStyle(on selectedText: NSMutableAttributedString, with style: Int, at range: NSRange) -> NSMutableAttributedString? {
-
-        if range.length > 0 { // there is any text selected
-
-            let systemFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
-
-            if let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitBold]) {
-
-                selectedText.setAttributes([.font: UIFont(descriptor: descriptor, size: systemFont.pointSize)], range: range)
-
-            }
-
-        } else {
-            return nil
-        }
-
-        return selectedText
-
-    }
-
-}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftRichString
 
 class NoteViewController: UIViewController {
 
@@ -65,12 +66,24 @@ class NoteViewController: UIViewController {
     @objc func applyStyle(sender: UIBarButtonItem){
         
         let range: NSRange = noteTextView.selectedRange
-        let textStyle = TextStyle()
+
+        let bold = Style("bold", {
+            $0.font = FontAttribute(.CourierNewPS_BoldItalicMT, size: 30)
+            $0.color = UIColor.red
+            $0.align = .center
+        })
+
+//        let italic = Style("italic", {
+//            $0.font = FontAttribute(.CourierNewPS_ItalicMT, size: 25)
+//            $0.color = UIColor.green
+//        })
+
+//        let attributedTextSelected = NSMutableAttributedString(attributedString: noteTextView.attributedText.attributedSubstring(from: range))
+
+//        attributedTextSelected.set(style: bold)
 
         noteTextView.textStorage.beginEditing()
-
-        
-
+        noteTextView.textStorage.set(style: bold, range: )
         noteTextView.textStorage.endEditing()
 
     }
