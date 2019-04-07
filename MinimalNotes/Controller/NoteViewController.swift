@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftRichString
 
 class NoteViewController: UIViewController {
 
@@ -30,8 +29,8 @@ class NoteViewController: UIViewController {
         // adding observer to get when the keyboard will show or hide
 
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(updateViewForKeyboard(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(updateViewForKeyboard(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(updateViewForKeyboard(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(updateViewForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
     }
 
@@ -67,23 +66,20 @@ class NoteViewController: UIViewController {
         
         let range: NSRange = noteTextView.selectedRange
 
-        let bold = Style("bold", {
-            $0.font = FontAttribute(.CourierNewPS_BoldItalicMT, size: 30)
-            $0.color = UIColor.red
-            $0.align = .center
-        })
+        let systemFont = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
 
-//        let italic = Style("italic", {
-//            $0.font = FontAttribute(.CourierNewPS_ItalicMT, size: 25)
-//            $0.color = UIColor.green
-//        })
+        let descriptor = systemFont.fontDescriptor.withSymbolicTraits([.traitBold, .traitItalic])
 
-//        let attributedTextSelected = NSMutableAttributedString(attributedString: noteTextView.attributedText.attributedSubstring(from: range))
-
-//        attributedTextSelected.set(style: bold)
+//        let attributes: [NSAttributedStringKey : Any] =
+//            [.paragraphStyle: paragraphStyle,
+//             .foregroundColor: UIColor.purple,
+//             .font: UIFont(name: "Papya", size:20) ??
+//                UIFont.systemFont(ofSize: 20),
+//             .underlineColor: UIColor.purple,
+//             .underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
 
         noteTextView.textStorage.beginEditing()
-        noteTextView.textStorage.set(style: bold, range: )
+        noteTextView.textStorage.setAttributes([.font: UIFont(descriptor: descriptor!, size: systemFont.pointSize)], range: range)
         noteTextView.textStorage.endEditing()
 
     }
@@ -117,10 +113,10 @@ class NoteViewController: UIViewController {
     @objc func updateViewForKeyboard(notification: Notification) {
 
         let userInfo = notification.userInfo!
-        let keyboardEndFrameScreenCoordinates = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardEndFrameScreenCoordinates = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let keyboardEndFrame = self.view.convert(keyboardEndFrameScreenCoordinates, to: view.window)
 
-        if notification.name == Notification.Name.UIKeyboardWillHide {
+        if notification.name == UIResponder.keyboardWillHideNotification {
             noteTextView.contentInset = UIEdgeInsets.zero
             toolBarBottomConstraint.constant = 0
         } else {
@@ -141,9 +137,9 @@ class NoteViewController: UIViewController {
 
 extension UIFont{
 
-    func withTraits(traits:UIFontDescriptorSymbolicTraits...) -> UIFont {
+    func withTraits(traits:UIFontDescriptor.SymbolicTraits...) -> UIFont {
         let descriptor = self.fontDescriptor
-            .withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
+            .withSymbolicTraits(UIFontDescriptor.SymbolicTraits(traits))
         return UIFont(descriptor: descriptor!, size: 0)
     }
 
